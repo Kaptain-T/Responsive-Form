@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --red :hsl(0, 100%, 74%);
+            --green: hsl(154, 59%, 51%);
+            --blue: hsl(248, 32%, 49%);
+            --dark-blue: hsl(249, 10%, 26%) ;
+            --greyish-blue: hsl(246, 25%, 77%);
+            --white: white;
+        }
+        body{
+            background: url(images/bg-intro-desktop.png) repeat-y var(--red);
+            font-family: "Poppins";
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0;
+            margin: 0;
+        }
+       main{
+        width: 80%;
+        height: 100vh;
+        margin: auto;
+       }
+        #content-container{
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .flexbox {
+            width: 100%;
+        }
+        .content2 > p {
+            background-color: var(--blue);
+            padding: 10px 40px;
+            border-radius: 5px;
+            text-align: center;
+
+        }
+        form{
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px var(--red);
+            padding: 20px;
+        }
+
+        form p {
+            color: var(--greyish-blue);
+            font-size: 11px;
+            text-align: center;
+        
+        }
+        form p span{
+            color: var(--red);
+        }
+
+        form p span:hover, .btn:hover, .content2 > p:hover{
+            cursor: pointer;
+        }
+
+        input {
+            width: 80%;
+            font-size: 16px;
+            margin: 20px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid var(--greyish-blue);
+            letter-spacing: 0.2ch;
+        }
+
+        input::content {
+            padding-left: 10px;
+        }
+        input::placeholder {
+            color: var(--greyish-blue);
+        }
+    
+        .btn
+        {
+            color: white;
+            background-color: var(--green);
+            text-align: center;
+            width: 89%;
+        }
+        .btn:focus{
+            border: var(--greyish-blue);
+        }
+        p span {
+            font-weight: 500;
+        }
+
+    @media (max-width:768px) {
+
+        main{
+            height: 100%;
+            margin-bottom: 100px;
+        }
+        #content-container{
+            width: 100%;
+            height: 80%;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+
+        }   
+
+        .content2 > p {
+            border-radius: 10px;
+        }
+        form{
+            padding: 30px 10px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 10px;
+            padding: 10px 20px;
+            height: 30px;
+        }
+
+        .btn
+        {
+            height: 50px;
+            padding: 10px 20px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <main id="background">
+        <div id="content-container">
+            <div class="flexbox">
+                <div class="content1">
+                    <h1>Learn to code by <br> watching others</h1>
+                    <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>             
+                </div>
+            </div>
+            <div class="flexbox">
+                <div class="content2">
+                    <p><a href=".btn"><span>Try it free 7 days</span> then $20/mo. thereafter </p></a>
+                    <form action="#" method="post">
+                        <input type="text" placeholder="First Name" required maxlength="30" minlength="2"> <br>
+                        <input type="text" placeholder="Last Name" required maxlength="30px" minlength="2"><br>
+                        <input type="email" name="email" id="email" placeholder="Email Address" required><br>
+                        <input type="password" name="password" placeholder="Password" id="password" required><br>
+                        <input type="submit" value="CLAIM YOUR FREE TRIAL" class="btn">
+                        <p>By clicking this button, you are agreeing to our <span>Terms and Services</span></p>
+                    </form>             
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
