@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
             --white: white;
         }
         body{
-            background: url(images/bg-intro-desktop.png) repeat var(--red);
+            background: url(images/bg-intro-desktop.png) var(--red);
             font-family: "Poppins";
             color: var(--white);
             font-size: 16px;
@@ -54,16 +55,15 @@
             padding: 10px 40px;
             border-radius: 5px;
             text-align: center;
-            box-shadow: 0 5px 5px grey;
+            box-shadow: 0 5px 1px hsl(0, 65%, 60%);
 
         }
         form{
             background-color: white;
             border-radius: 5px;
-            box-shadow: 0 5px 5px grey;
+            box-shadow: 0 5px 1px hsl(0, 65%, 60%);
             padding: 20px;
         }
-
         form p {
             color: var(--greyish-blue);
             font-size: 11px;
@@ -71,13 +71,15 @@
         
         }
         form p span{
+            display: inline;
             color: var(--red);
+            font-weight: 700;
         }
 
         form p span:hover, .btn:hover, .content2 > p:hover{
             cursor: pointer;
         }
-
+        
         input {
             width: 80%;
             font-size: 16px;
@@ -85,29 +87,52 @@
             margin-bottom: 10px;
             padding: 10px 20px;
             border-radius: 5px;
-            border: 1px solid var(--greyish-blue);
-            letter-spacing: 0.2ch;
+            border: 2px solid var(--greyish-blue);
         }
-
+        input:focus {
+            outline: none;
+        }
         input::content {
             padding-left: 10px;
         }
         input::placeholder {
-            color: var(--greyish-blue);
+            color: var(--dark-blue);
+            font-weight: bold;
         }
-    
-        .btn
-        {
+
+        input:focus:required:invalid{
+            border: 1px solid var(--red);
+            background-image: url(images/icon-error.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-origin: content-box;
+        }
+       
+        input:focus:required:invalid + span {
+            display: inline;
+            color: var(--red);
+            font-size: 14px;
+            float: right;
+            margin-right: 30px;
+        }
+
+        input:valid{
+            border: 1px solid var(--green);
+        }
+
+
+        .btn{
             color: white;
             background-color: var(--green);
             text-align: center;
             width: 89%;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 5px 1px hsl(154, 63%, 47%);
         }
-        .btn:focus{
+        .btn:focus, .btn:hover{
+            background-color: hsl(154, 78%, 60%);
             border: var(--greyish-blue);
-        }
-        p span {
-            font-weight: 700;
         }
 
     @media (max-width:768px) {
@@ -147,6 +172,20 @@
             padding: 10px 20px;
         }
     }
+
+    @media screen and (max-width:550px) {
+        body{
+            background: url(images/bg-intro-mobile.png) var(--red);
+        }
+        #background{
+            margin-top: 70px;
+        }
+        .btn
+        {
+            padding: 10px;
+            text-align: center;
+        }
+    }
     </style>
 </head>
 <body>
@@ -160,12 +199,13 @@
             </div>
             <div class="flexbox">
                 <div class="content2">
-                    <p><a href=".btn"><span>Try it free 7 days</span> then $20/mo. thereafter </p></a>
-                    <form action="#" method="post">
-                        <input type="text" placeholder="First Name" required maxlength="30" minlength="2"> <br>
-                        <input type="text" placeholder="Last Name" required maxlength="30px" minlength="2"><br>
-                        <input type="email" name="email" id="email" placeholder="Email Address" required><br>
-                        <input type="password" name="password" placeholder="Password" id="password" required><br>
+                    <p><a href=".btn"><strong>Try it free 7 days</strong> then $20/mo. thereafter </p></a>
+                    <form id="signup"  action="#" method="post">
+                        <input type="text" placeholder="First Name" required maxlength="30" minlength="3"> <span>First Name cannot be blank</span>
+                        <input type="text" placeholder="Last Name" required maxlength="30px" minlength="3"> <span>Last Name cannot be blank</span>
+                        <input type="email" name="email" id="email" placeholder="Email Address" required> <span>Looks like this is not an email</span>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <span>Password cannot be empty</span>
                         <input type="submit" value="CLAIM YOUR FREE TRIAL" class="btn">
                         <p>By clicking this button, you are agreeing to our <span>Terms and Services</span></p>
                     </form>             
